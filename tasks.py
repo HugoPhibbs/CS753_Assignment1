@@ -22,6 +22,5 @@ def read_adjacency_dataset(filename, N):
 def csr_mat_to_col_stochastic(M_csr):
     col_sums = np.array(M_csr.sum(axis=0)).flatten()
     col_sums[col_sums == 0] = 1
-    M_csr.multiply(1/col_sums)
 
-    return M_csr
+    return M_csr.multiply(1 / col_sums)
